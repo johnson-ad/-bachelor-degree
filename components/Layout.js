@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Footer from './footer/Footer';
 
 export default function Layout({ title, children }) {
   return (
@@ -28,16 +29,7 @@ export default function Layout({ title, children }) {
           </nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
-        <footer className="bg-gray-50 h-1/2 w-full flex md:flex-row flex-col justify-around items-start p-20 shadow-inner">
-          <div className="p-5">
-            <ul className="text-gray-800 font-bold text-3xl pb-6">
-              <p>
-                stream<span className="text-blue-600">line</span>
-              </p>
-              <div className="flex gap-6 pb-5"></div>
-            </ul>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );

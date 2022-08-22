@@ -20,7 +20,9 @@ export default function Layout({ title, children }) {
             </Link>
             <div>
               <Link href="/cart">
-                <a className="p-2">Cart</a>
+                <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
+                  Cart
+                </a>
               </Link>
               <Link href="/login">
                 <a className="p-2">Login</a>

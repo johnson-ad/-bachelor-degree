@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function ProductItem({ product }) {
   return (
-    <div className="card">
+    <div className="card transform transition-all hover:scale-105">
       <Link href={`/product/${product.slug}`}>
         <a>
           <img

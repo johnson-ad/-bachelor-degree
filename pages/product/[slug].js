@@ -24,13 +24,28 @@ export default function ProductScreen() {
         </Link>
       </div>
       <div className="grid md:grid-cols-4 md:gap-3 py-2 mb-3">
-        <Image
-          src={product.image}
-          alt={product.name}
-          width={640}
-          height={640}
-          layout="responsive"
-        />
+        <div className="md:col-span-2">
+          <Image
+            src={product.image}
+            alt={product.name}
+            width={640}
+            height={640}
+            layout="responsive"
+          />
+        </div>
+        <div className="md:col-span-2 p-6">
+          <ul>
+            <li>
+              <h1 className="text-lg">{product.name}</h1>
+            </li>
+            <li>Category: {product.category}</li>
+            <li>Brand: {product.brand}</li>
+            <li>
+              {product.rating} of {product.numReviews} reviews
+            </li>
+            <li>Description: {product.description}</li>
+          </ul>
+        </div>
       </div>
     </Layout>
   );

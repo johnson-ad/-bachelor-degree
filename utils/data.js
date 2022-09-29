@@ -11,7 +11,7 @@ const data = {
       numReviews: 8,
       countInStock: 20,
       description:
-        'A popular shirt from Nike. It is a great shirt for the summer.',
+        "A popular shirt from Nike. It is a great shirt for the summer Le commerce est l'une des plus anciennes et plus importantes inventions de l'humanité. Dans un contexte de mondialisation caractérisé par l'accélération des échanges commerciaux et financiers à l'échelle mondiale grâce au développement des technologies de l'information et de la communication, le e-commerce occupe une place croissante sur le marché de la vente..",
     },
 
     {
@@ -50,7 +50,7 @@ const data = {
       numReviews: 8,
       countInStock: 20,
       description:
-        'A popular shirt from Nike. It is a great shirt for the summer.',
+        "A popular shirt from Nike. It is a great shirt for the summer Le commerce est l'une des plus anciennes et plus importantes inventions de l'humanité. Dans un contexte de mondialisation caractérisé par l'accélération des échanges commerciaux et financiers à l'échelle mondiale grâce au développement des technologies de l'information et de la communication, le e-commerce occupe une place croissante sur le marché de la vente..",
     },
 
     {
@@ -96,8 +96,7 @@ const data = {
       name: 'H&M Shirt',
       slug: 'H&M-shirt',
       catgory: 'Shirts',
-      image:
-        'https://images.unsplash.com/photo-1571461000670-504c37ba483c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+      image: '/images/look1.png',
       price: '90',
       brand: 'H&M',
       rating: 4.5,
@@ -107,10 +106,10 @@ const data = {
     },
 
     {
-      name: 'Air Max',
-      slug: 'air-max',
+      name: 'Air Maxs',
+      slug: 'air-maxsss',
       catgory: 'Shoes',
-      image: '/images/shirt1.jpg',
+      image: '/images/nft6-removebg-preview.png',
       price: '170',
       brand: 'Nike',
       rating: 4.0,
@@ -120,11 +119,10 @@ const data = {
     },
 
     {
-      name: 'Golf Pants',
-      slug: 'golf-pants',
+      name: 'Golf Pantss',
+      slug: 'golf-pantssss',
       catgory: 'Pants',
-      image:
-        'https://images.unsplash.com/photo-1594782078968-2b07656d7bb2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=364&q=80',
+      image: '/images/nft5-removebg-preview.png',
       price: '70',
       brand: 'Johnson&Johnson',
       rating: 4.5,
@@ -140,6 +138,18 @@ const data = {
       catgory: 'Shoes',
       image: '/images/shirt1.jpg',
       price: '65',
+      brand: 'Addidas',
+      rating: 4.5,
+      numReviews: 9,
+      countInStock: 35,
+      description: 'A popular shirt from Addidas.',
+    },
+    {
+      name: 'Addidas Shirtss',
+      slug: 'addidas-shirtsss',
+      catgory: 'Shoes',
+      image: '/images/nft3-removebg-preview.png',
+      price: '85',
       brand: 'Addidas',
       rating: 4.5,
       numReviews: 9,

@@ -9,7 +9,7 @@ const data = {
       brand: 'Nike',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 20,
+      countInStock: 10,
       description:
         "A popular shirt from Nike. It is a great shirt for the summer Le commerce est l'une des plus anciennes et plus importantes inventions de l'humanité. Dans un contexte de mondialisation caractérisé par l'accélération des échanges commerciaux et financiers à l'échelle mondiale grâce au développement des technologies de l'information et de la communication, le e-commerce occupe une place croissante sur le marché de la vente..",
     },
@@ -23,7 +23,7 @@ const data = {
       brand: 'Jason',
       rating: 4.4,
       numReviews: 8,
-      countInStock: 97,
+      countInStock: 7,
       description: 'A popular shirt from Jason.',
     },
 
@@ -48,7 +48,7 @@ const data = {
       brand: 'Johnson&Johnson',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 20,
+      countInStock: 290,
       description:
         "A popular shirt from Nike. It is a great shirt for the summer Le commerce est l'une des plus anciennes et plus importantes inventions de l'humanité. Dans un contexte de mondialisation caractérisé par l'accélération des échanges commerciaux et financiers à l'échelle mondiale grâce au développement des technologies de l'information et de la communication, le e-commerce occupe une place croissante sur le marché de la vente..",
     },
@@ -62,7 +62,7 @@ const data = {
       brand: 'Hummer',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 20,
+      countInStock: 23,
       description:
         'A popular shirt from Hummer. It is a great shirt for the summer.',
     },
@@ -76,7 +76,7 @@ const data = {
       brand: 'Zara',
       rating: 4.6,
       numReviews: 8,
-      countInStock: 80,
+      countInStock: 20,
       description: 'A popular pants from Zara.',
     },
 
@@ -89,7 +89,7 @@ const data = {
       brand: 'Olivier',
       rating: 4,
       numReviews: 9,
-      countInStock: 35,
+      countInStock: 45,
       description: 'A popular pants from Jeans.',
     },
     {
@@ -101,7 +101,7 @@ const data = {
       brand: 'H&M',
       rating: 4.5,
       numReviews: 8,
-      countInStock: 50,
+      countInStock: 52,
       description: 'A popular shirt from H&M.',
     },
 
@@ -114,7 +114,7 @@ const data = {
       brand: 'Nike',
       rating: 4.0,
       numReviews: 7,
-      countInStock: 40,
+      countInStock: 49,
       description: 'A popular shoes from Nike.',
     },
 
@@ -153,7 +153,7 @@ const data = {
       brand: 'Addidas',
       rating: 4.5,
       numReviews: 9,
-      countInStock: 35,
+      countInStock: 30,
       description: 'A popular shirt from Addidas.',
     },
   ],

@@ -1,10 +1,16 @@
 const data = {
   products: [
     {
-      name: 'Free Shirt',
+      name: 'Free Shirt 007',
       slug: 'free-shirt',
       catgory: 'Shirts',
       image: '/images/pants1.jpg',
+      // images: [
+      //   '/images/pants1.jpg',
+      //   '/images/johnson&johnson.png',
+      //   '/images/pants3.jpg',
+      //   '/images/look.png',
+      // ],
       price: '70',
       brand: 'Nike',
       rating: 4.5,

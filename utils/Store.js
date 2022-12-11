@@ -11,7 +11,7 @@ function reducer(state, action) {
     case 'CART_ADD_ITEM': {
       const newItem = action.payload;
       const existItem = state.cart.cartItems.find(
-        (item) => item.slug === newItem.sulg
+        (item) => item.slug === newItem.slug
       );
       const cartItems = existItem
         ? state.cart.cartItems.map((item) => {
@@ -26,7 +26,9 @@ function reducer(state, action) {
       );
       return { ...state, cart: { ...state.cart, cartItems } };
     }
-
+    // case 'CART_ADD_ITEM': {
+    //   return;
+    // }
     default:
       return state;
   }

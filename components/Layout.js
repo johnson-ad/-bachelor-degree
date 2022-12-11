@@ -23,14 +23,19 @@ export default function Layout({ title, children }) {
               <a className="text-lg font-bold">AMG</a>
             </Link>
             <div>
+              <Link href="/product">
+                <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
+                  Product
+                </a>
+              </Link>
               <Link href="/cart">
                 <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
                   Cart
-                  {cart.cartItems.length > 0 ? (
+                  {cart.cartItems.length > 0 && (
                     <span className="ml-1 rounded-full bg-red-600 px-2 py-1 tet-xs font-bold text-white">
                       {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                     </span>
-                  ) : null}
+                  )}
                 </a>
               </Link>
               <Link href="/login">

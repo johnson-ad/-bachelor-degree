@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      name: 'Free Shirt 007',
+      name: 'Free Shirt 007 king',
       slug: 'free-shirt',
       catgory: 'Shirts',
       image: '/images/pants1.jpg',
@@ -64,7 +64,7 @@ const data = {
       slug: 'hummer-shirt',
       catgory: 'Shirts',
       image: '/images/look.png',
-      price: '70',
+      price: '30',
       brand: 'Hummer',
       rating: 4.5,
       numReviews: 8,

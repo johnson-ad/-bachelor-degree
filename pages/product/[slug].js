@@ -10,6 +10,7 @@ import { Store } from '../../utils/Store';
 export default function ProductScreen() {
   const { state, dispatch } = useContext(Store);
 
+  const router = useRouter();
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((x) => x.slug === slug);
@@ -18,7 +19,16 @@ export default function ProductScreen() {
   }
 
   const addToCartHandler = () => {
-    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity: 1 } });
+    const existItem = state.cart.cartItems.find((x) => x.slug === product.slug);
+    const quantity = existItem ? existItem.quantity + 1 : 1;
+
+    if (product.countInStock < quantity) {
+      alert('Sorry. Product is out stock');
+      return;
+    }
+
+    dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
+    // router.push('/cart');
   };
 
   return (
@@ -39,6 +49,7 @@ export default function ProductScreen() {
             width={640}
             height={640}
             layout="responsive"
+            objectFit="cover"
           />
         </div>
         <div className="flex-col md:col-span-2 p-6">

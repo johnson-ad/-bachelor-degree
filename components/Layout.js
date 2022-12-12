@@ -1,13 +1,31 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Footer from './footer/Footer';
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Store } from '../utils/Store';
 
 export default function Layout({ title, children }) {
-  const { state, dispatch } = useContext(Store);
+  const { state } = useContext(Store);
   const { cart } = state;
+  const [cartItemsCount, setCartItemsCount] = useState(0);
 
+  useEffect(() => {
+    setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
+  }, [cart.cartItems]);
+
+  // const logoutClickHandler = () => {
+  //   Cookies.remove('cart');
+  //   dispatch({ type: 'CART_RESET' });
+  //   signOut({ callbackUrl: '/login' });
+  // };
+
+  // const [query, setQuery] = useState('');
+
+  // const router = useRouter();
+  // const submitHandler = (e) => {
+  //   e.preventDefault();
+  //   router.push(`/search?query=${query}`);
+  // };
   return (
     <>
       <Head>
@@ -29,11 +47,11 @@ export default function Layout({ title, children }) {
                 </a>
               </Link>
               <Link href="/cart">
-                <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
+                <a className="p-2">
                   Cart
-                  {cart.cartItems.length > 0 && (
-                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 tet-xs font-bold text-white">
-                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                  {cartItemsCount > 0 && (
+                    <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">
+                      {cartItemsCount}
                     </span>
                   )}
                 </a>

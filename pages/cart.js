@@ -1,25 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
-// import { XCircleIcon } from '@heroicons/react/outline';
-import {
-  FaBoxTissue,
-  FaExclamationCircle,
-  FaCircle,
-  FaCircleNotch,
-  FaInstagram,
-  FaFacebookF,
-  FaTwitter,
-  FaTiktok,
-} from 'react-icons/fa';
+import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
+import dynamic from 'next/dynamic';
 
-export default function CartScreen() {
+const CartScreen = () => {
   const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
   } = state;
+  const router = useRouter();
+
+  console.log(state);
 
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
@@ -34,25 +28,29 @@ export default function CartScreen() {
     <Layout title="Shopping Cart">
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
-        <div>
+        <div className="flex">
           {' '}
-          Cart is empty. <Link href="/">Go Shopping</Link>
+          Cart is empty.{' '}
+          <Link href="/">
+            <a className="flex gap-2 items-center">
+              <IoMdArrowRoundBack />
+              <span className="pt-0">Go Shopping</span>
+            </a>
+          </Link>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-4 bg-green-400">
           <div className="overflow-x-auto md:col-span-3">
             <table className="min-w-full">
               <thead className="border-b">
-                <th className="px-5 text-left text-xl">Item</th>
-                <th className="p-5 text-right text-green-700   font-bold">
-                  Quantity
-                </th>
-                <th className="p-5 text-right   ">Price</th>
-                <th className="p-5   ">Action</th>
+                <th className="px-5 text-left">Item</th>
+                <th className="p-5 text-right text-green-700">Quantity</th>
+                <th className="p-5 text-right">Price</th>
+                <th className="p-5">Action</th>
               </thead>
               <tbody>
                 {cartItems.map((item) => (
-                  <tr key={item.slug} className="'border-b">
+                  <tr key={item.slug} className="border-b">
                     <td>
                       <Link href={`/product/${item.slug}`}>
                         <a className="flex items-center">
@@ -68,7 +66,7 @@ export default function CartScreen() {
                         </a>
                       </Link>
                     </td>
-                    <td className="text-right bg-green-400">
+                    <td className="p-5 text-right font-bold">
                       <select
                         value={item.quantity}
                         onChange={(e) =>
@@ -82,14 +80,9 @@ export default function CartScreen() {
                         ))}
                       </select>
                     </td>
-                    {/* <tr className=" text-right">{item.quantity}</tr> */}
-                    <td className=" text-right p-5 bg-yellow-400">
-                      {item.price}
-                    </td>
-                    <td className=" text-right bg-yellow-400">
+                    <td className="p-5 text-right font-bold">${item.price}</td>
+                    <td className="p-5 text-center">
                       <button onClick={() => removeItemHandler(item)}>
-                        {/* <XCircleIcon className="h-5 w-5" /> */}
-                        {/* <FaBoxTissue /> */}
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -104,6 +97,7 @@ export default function CartScreen() {
                             d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                           />
                         </svg>
+                        ;
                       </button>
                     </td>
                   </tr>
@@ -111,13 +105,21 @@ export default function CartScreen() {
               </tbody>
             </table>
           </div>
-          <div className="card p-5 mt-2 bg-green-400 ">
+          <div className="card p-5 mt-1 mr-1  bg-blue-400 ">
             <ul>
               <li>
-                <div className="">
-                  Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : ${' '}
+                <div className="pb-3 text-xl font-bold">
+                  Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}) : $
                   {cartItems.reduce((a, c) => a + c.quantity * c.price, 0)}
                 </div>
+              </li>
+              <li>
+                <button
+                  onClick={() => router.push('login?redirect=/shipping')}
+                  className="primary-button w-full font-bold"
+                >
+                  Check Out
+                </button>
               </li>
             </ul>
           </div>
@@ -125,4 +127,6 @@ export default function CartScreen() {
       )}
     </Layout>
   );
-}
+};
+
+export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

@@ -49,7 +49,7 @@ function CartScreen() {
           </div>
         </div>
       ) : (
-        <div className="grid md:grid-cols-4 md:gap-4 bg-green-400">
+        <div className="grid md:grid-cols-4 md:gap-4">
           <div className="overflow-x-auto md:col-span-3">
             <table className="min-w-full">
               <thead className="border-b">
@@ -107,7 +107,6 @@ function CartScreen() {
                             d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                           />
                         </svg>
-                        ;
                       </button>
                     </td>
                   </tr>
@@ -115,7 +114,7 @@ function CartScreen() {
               </tbody>
             </table>
           </div>
-          <div className="card p-5 mt-1 mr-1  bg-blue-400 ">
+          <div className="card p-5 mt-1 mr-1 ">
             <ul>
               <li>
                 <div className="pb-3 text-xl font-bold">

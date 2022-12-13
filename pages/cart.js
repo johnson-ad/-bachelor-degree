@@ -5,8 +5,9 @@ import { useContext } from 'react';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import dynamic from 'next/dynamic';
+import notfound from '../public/images/notfound.png';
 
-const CartScreen = () => {
+function CartScreen() {
   const { state, dispatch } = useContext(Store);
   const {
     cart: { cartItems },
@@ -26,15 +27,26 @@ const CartScreen = () => {
     <Layout title="Shopping Cart">
       <h1 className="mb-4 text-xl">Shopping Cart</h1>
       {cartItems.length === 0 ? (
-        <div className="flex">
-          {' '}
-          Cart is empty.{' '}
-          <Link href="/">
-            <a className="flex gap-2 items-center">
-              <IoMdArrowRoundBack />
-              <span className="pt-0">Go Shopping</span>
-            </a>
-          </Link>
+        <div className=" bg-green-500 flex-col justify-items-center items-center">
+          <div className="bg-red-500 md:3">
+            <Image
+              src={notfound}
+              alt="404"
+              width={200}
+              height={200}
+              objectFit="cover"
+            />
+          </div>
+          <div>
+            <h1 class="text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500 font-oswald mb-10">
+              Cart is empty.
+            </h1>
+            <Link href="/">
+              <a className="flex gap-2 items-center">
+                <span className="pt-0">Go Shopping</span>
+              </a>
+            </Link>
+          </div>
         </div>
       ) : (
         <div className="grid md:grid-cols-4 md:gap-4 bg-green-400">
@@ -125,6 +137,6 @@ const CartScreen = () => {
       )}
     </Layout>
   );
-};
+}
 
 export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

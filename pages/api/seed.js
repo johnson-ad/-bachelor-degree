@@ -1,4 +1,4 @@
-import User from '../../models/User';
+import User from '../../model/User';
 import data from '../../utils/data';
 import db from '../../utils/db';
 

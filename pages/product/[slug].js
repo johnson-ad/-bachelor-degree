@@ -1,21 +1,19 @@
-import React, { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React, { useContext } from 'react';
 import Layout from '../../components/Layout';
 import data from '../../utils/data';
-import Link from 'next/link';
-import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Store } from '../../utils/Store';
 
 export default function ProductScreen() {
   const { state, dispatch } = useContext(Store);
 
-  const router = useRouter();
   const { query } = useRouter();
   const { slug } = query;
   const product = data.products.find((x) => x.slug === slug);
   if (!product) {
-    return <div>Product Not Found</div>;
+    return <div>Produt Not Found</div>;
   }
 
   const addToCartHandler = () => {
@@ -23,12 +21,11 @@ export default function ProductScreen() {
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
     if (product.countInStock < quantity) {
-      alert('Sorry. Product is out stock');
+      alert('Sorry. Product is out of stock');
       return;
     }
 
     dispatch({ type: 'CART_ADD_ITEM', payload: { ...product, quantity } });
-    // router.push('/cart');
   };
 
   return (
@@ -36,7 +33,6 @@ export default function ProductScreen() {
       <div className="py-2 flex w-full">
         <Link href="/">
           <a className="flex gap-2 items-center">
-            <IoMdArrowRoundBack />
             <span className="pt-0">back to products</span>
           </a>
         </Link>

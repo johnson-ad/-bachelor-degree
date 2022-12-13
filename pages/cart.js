@@ -13,8 +13,6 @@ const CartScreen = () => {
   } = state;
   const router = useRouter();
 
-  console.log(state);
-
   const removeItemHandler = (item) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
@@ -52,7 +50,7 @@ const CartScreen = () => {
                 {cartItems.map((item) => (
                   <tr key={item.slug} className="border-b">
                     <td>
-                      <Link href={`/product/${item.slug}`}>
+                      <Link href="/product/`${item.slug}`">
                         <a className="flex items-center">
                           <Image
                             src={item.image}

@@ -29,12 +29,6 @@ export default function Footer() {
             <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
               Stocks
             </li>
-            <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-              Futures & Options
-            </li>
-            <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-              Mutual Funds
-            </li>
           </ul>
         </div>
         <div className="p-5">
@@ -43,9 +37,6 @@ export default function Footer() {
             <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
               About
             </li>
-            <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-              Products
-            </li>
           </ul>
         </div>
         <div className="p-5">
@@ -53,9 +44,6 @@ export default function Footer() {
             <p className="text-gray-800 font-bold text-2xl pb-4">Support</p>
             <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
               Contact
-            </li>
-            <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
-              Support Portals
             </li>
             <li className="text-gray-500 text-md pb-2 font-semibold hover:text-blue-600 cursor-pointer">
               Videos

@@ -18,12 +18,12 @@ const data = {
 
   products: [
     {
-      name: 'Free Shirt 007 king',
-      slug: 'free-shirt',
+      name: 'Cart MSI',
+      slug: 'cart msi',
       category: 'Shirts',
-      image: '/images/pants1.jpg',
+      image: '/images/cart-MSI.png',
       price: '70',
-      brand: 'Nike',
+      brand: 'MSI',
       rating: 4.5,
       numReviews: 8,
       countInStock: 10,
@@ -93,10 +93,10 @@ const data = {
     },
 
     {
-      name: 'Airdax Shoes',
-      slug: 'airdax-shoes',
+      name: 'RTX3080ti',
+      slug: 'rxt3080ti',
       category: 'Shoes',
-      image: '/images/pants3.jpg',
+      image: '/images/rtx3080ti.png',
       price: '230',
       brand: 'Nike',
       rating: 4.8,

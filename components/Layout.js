@@ -30,7 +30,7 @@ export default function Layout({ title, children }) {
   return (
     <>
       <Head>
-        <title>{title ? title + ' - AMG' : 'AMG'}</title>
+        <title>{title ? title + ' - ' : 'PAJ'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="bachelor degree" />
         <link rel="icon" href="/favicon.ico" />
@@ -38,18 +38,28 @@ export default function Layout({ title, children }) {
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between">
         <header>
-          <nav className="flex h-12 items-center px-4 justify-between shadow-md">
+          <nav className="flex h-12 items-center px-5 justify-between shadow-md">
             <Link href="/">
-              <a className="text-lg font-bold">AMG</a>
+              <a className="text-lg font-bold">PAJ</a>
             </Link>
-            <div>
+            <div className="font-bold">
+              <Link href="/">
+                <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
+                  Home
+                </a>
+              </Link>
               <Link href="/product">
                 <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
                   Product
                 </a>
               </Link>
+              <Link href="/about">
+                <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
+                  About
+                </a>
+              </Link>
               <Link href="/cart">
-                <a className="p-2">
+                <a className="p-2 mr-2 hover:scale-125 duration-300 hover:text-teal-400">
                   Cart
                   {cartItemsCount > 0 && (
                     <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">

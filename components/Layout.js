@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Footer from './footer/index';
 import Cookies from 'js-cookie';
-import React, { useContext, useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -59,7 +59,7 @@ export default function Layout({ title, children }) {
                 </a>
               </Link>
               <Link href="/cart">
-                <a className="p-2 mr-2 hover:scale-125 duration-300 hover:text-teal-400">
+                <a className="p-2 mr-1 hover:scale-125 duration-300 hover:text-teal-400">
                   Cart
                   {cartItemsCount > 0 && (
                     <span className="ml-1 rounded-full bg-red-600 px-2 py-1 text-xs font-bold text-white">

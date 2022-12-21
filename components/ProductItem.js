@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function ProductItem({ product, addToCartHandler }) {
   return (
-    <div className="card ">
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+      className="card mr-2 ml-2 mb-4 mt-10 z-0 hover:z-0"
+    >
       <Link href={`/product/${product.slug}`}>
         <a>
           <img
@@ -14,7 +20,10 @@ export default function ProductItem({ product, addToCartHandler }) {
         </a>
       </Link>
 
-      <div className="flex flex-col items-center jutify-center p-5">
+      <div
+        className="flex flex-col items-center jutify-center p-2"
+        onClick={() => addToCartHandler(product)}
+      >
         <Link href={`/product/${product.slug}`}>
           <a className="text-xl font-bold">
             {' '}
@@ -23,14 +32,11 @@ export default function ProductItem({ product, addToCartHandler }) {
         </Link>
         <p className="mb-2">{product.brand}</p>
         <p>${product.price}</p>
-        <button
-          className="primary-button"
-          type="button"
-          onClick={() => addToCartHandler(product)}
-        >
+
+        <button className="primary-button" type="button">
           Add to cart
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 }

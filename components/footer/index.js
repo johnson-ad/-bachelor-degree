@@ -1,9 +1,18 @@
 import Link from 'next/link';
 import { FaInstagram, FaFacebookF, FaTwitter, FaTiktok } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <>
+    <motion.div
+      animate={{ scale: 1 }}
+      initial={{ scale: 0 }}
+      transition={{
+        delay: 0.6,
+        x: { duration: 1 },
+        default: { ease: 'linear' },
+      }}
+    >
       <div className="bg-gray-50 h-1/2 w-full flex md:flex-row flex-col justify-around items-start p-15 mt-8">
         <div className="p-5 ">
           <ul>
@@ -55,6 +64,6 @@ export default function Footer() {
           © 2021-2022 <span>AMG</span> all rights reserved
         </h1>
       </div>
-    </>
+    </motion.div>
   );
 }

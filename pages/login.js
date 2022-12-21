@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -41,7 +42,10 @@ export default function LoginScreen() {
   };
   return (
     <Layout title="Login">
-      <form
+      <motion.form
+        animate={{ opacity: 1, y: 14 }}
+        transition={{ type: 'spring', delay: 0.8 }}
+        initial={{ opacity: 0, y: 0 }}
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
@@ -50,6 +54,7 @@ export default function LoginScreen() {
           <label htmlFor="email">Email</label>
           <input
             type="email"
+            autoFocus
             {...register('email', {
               required: 'Please enter email',
               pattern: {
@@ -59,7 +64,6 @@ export default function LoginScreen() {
             })}
             className="w-full"
             id="email"
-            autoFocus
           ></input>
           {errors.email && (
             <div className="text-red-500">{errors.email.message}</div>
@@ -75,7 +79,6 @@ export default function LoginScreen() {
             })}
             className="w-full"
             id="password"
-            autoFocus
           ></input>
           {errors.password && (
             <div className="text-red-500 ">{errors.password.message}</div>
@@ -89,7 +92,7 @@ export default function LoginScreen() {
           {/* <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link> */}
           <Link href="/register">Register</Link>
         </div>
-      </form>
+      </motion.form>
     </Layout>
   );
 }

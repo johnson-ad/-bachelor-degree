@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import CheckoutWizard from '../components/CheckoutWizard';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
+import { motion } from 'framer-motion';
 
 export default function PaymentScreen() {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
@@ -41,7 +42,13 @@ export default function PaymentScreen() {
   return (
     <Layout title="Payment Method">
       <CheckoutWizard activeStep={2} />
-      <form className="mx-auto max-w-screen-md" onSubmit={submitHandler}>
+      <motion.form
+        animate={{ opacity: 1, y: 14 }}
+        transition={{ type: 'spring', delay: 0.8 }}
+        initial={{ opacity: 0, y: 0 }}
+        className="mx-auto max-w-screen-md"
+        onSubmit={submitHandler}
+      >
         <h1 className="mb-4 text-xl">Payment Method</h1>
         {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
           <div key={payment} className="mb-4">
@@ -69,7 +76,7 @@ export default function PaymentScreen() {
           </button>
           <button className="primary-button">Next</button>
         </div>
-      </form>
+      </motion.form>
     </Layout>
   );
 }

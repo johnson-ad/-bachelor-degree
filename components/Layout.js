@@ -12,6 +12,7 @@ import DropdownLink from './DropdownLink';
 import { useRouter } from 'next/router';
 import en from '../locales/en';
 import fr from '../locales/fr';
+import { motion } from 'framer-motion';
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
@@ -42,7 +43,7 @@ export default function Layout({ title, children }) {
   return (
     <>
       <Head>
-        <title>{title ? title + ' - ' : 'PAJ'}</title>
+        <title>{title ? title : 'PAJ'}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="bachelor degree" />
         <link rel="icon" href="/favicon.ico" />
@@ -50,7 +51,12 @@ export default function Layout({ title, children }) {
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between">
         <header>
-          <nav className="flex h-12 items-center px-5 justify-between shadow-md">
+          <motion.nav
+            animate={{ opacity: 1, y: 4 }}
+            transition={{ delay: 0.3 }}
+            initial={{ opacity: 0, y: 0 }}
+            className="flex h-12 items-center px-5 justify-between shadow-md"
+          >
             <Link href="/">
               <a className="text-lg font-bold">PAJ</a>
             </Link>
@@ -85,9 +91,15 @@ export default function Layout({ title, children }) {
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block">
                   <Menu.Button className="text-blue-600 mr-2">
-                    {session.user.name}
+                    <motion.span
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.4 }}
+                      initial={{ opacity: 0 }}
+                    >
+                      {session.user.name}
+                    </motion.span>
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg ">
+                  <Menu.Items className="absolute right-0 w-56 origin-top-right hover:z-50 bg-white shadow-lg ">
                     <Menu.Item>
                       <DropdownLink className="dropdown-link" href="/profile">
                         Profile
@@ -120,7 +132,7 @@ export default function Layout({ title, children }) {
               <select
                 onChange={changeLanguage}
                 defaultValue={locale}
-                className="text-blue-700 text-shadow-sm"
+                className="text-blue-700 text-shadow-sm ml-5"
               >
                 <option className="text-black" value="fr">
                   FR
@@ -130,7 +142,7 @@ export default function Layout({ title, children }) {
                 </option>
               </select>
             </div>
-          </nav>
+          </motion.nav>
         </header>
         <main className="container m-auto mt-4 px-4">{children}</main>
         <Footer />

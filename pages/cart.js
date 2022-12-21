@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import notfound from '../public/images/notfound.png';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { motion } from 'framer-motion';
 
 function CartScreen() {
   const { state, dispatch } = useContext(Store);
@@ -32,9 +33,21 @@ function CartScreen() {
 
   return (
     <Layout title="Shopping Cart">
-      <h1 className="mb-4 text-xl">Shopping Cart</h1>
+      <motion.h1
+        animate={{ opacity: 1, y: 14 }}
+        transition={{ type: 'spring', delay: 0.8 }}
+        initial={{ opacity: 0, y: 0 }}
+        className="mb-4 text-xl"
+      >
+        Shopping Cart
+      </motion.h1>
       {cartItems.length === 0 ? (
-        <div className=" bg-green-500 flex-col justify-items-center items-center">
+        <motion.div
+          animate={{ opacity: 1 }}
+          transition={{ type: 'spring', delay: 1 }}
+          initial={{ opacity: 0 }}
+          className=" bg-green-500 flex-col justify-items-center items-center"
+        >
           <div className="bg-red-500 md:3">
             <Image
               src={notfound}
@@ -54,9 +67,14 @@ function CartScreen() {
               </a>
             </Link>
           </div>
-        </div>
+        </motion.div>
       ) : (
-        <div className="grid md:grid-cols-4 md:gap-4">
+        <motion.div
+          animate={{ opacity: 1 }}
+          transition={{ type: 'spring', delay: 0.4 }}
+          initial={{ opacity: 0 }}
+          className="grid md:grid-cols-4 md:gap-4"
+        >
           <div className="overflow-x-auto md:col-span-3">
             <table className="min-w-full">
               <thead className="border-b">
@@ -65,7 +83,11 @@ function CartScreen() {
                 <th className="p-5 text-right">Price</th>
                 <th className="p-5">Action</th>
               </thead>
-              <tbody>
+              <motion.tbody
+                animate={{ opacity: 1 }}
+                transition={{ type: 'spring', delay: 0.6 }}
+                initial={{ opacity: 0 }}
+              >
                 {cartItems.map((item) => (
                   <tr key={item.slug} className="border-b">
                     <td>
@@ -118,10 +140,15 @@ function CartScreen() {
                     </td>
                   </tr>
                 ))}
-              </tbody>
+              </motion.tbody>
             </table>
           </div>
-          <div className="card p-5 mt-1 mr-1 ">
+          <motion.div
+            animate={{ opacity: 1, x: -14 }}
+            transition={{ type: 'spring', delay: 0.8 }}
+            initial={{ opacity: 0, x: 0 }}
+            className="card p-5 mt-1 mr-1 "
+          >
             <ul>
               <li>
                 <div className="pb-3 text-xl font-bold">
@@ -138,8 +165,8 @@ function CartScreen() {
                 </button>
               </li>
             </ul>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
     </Layout>
   );

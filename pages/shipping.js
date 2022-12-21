@@ -5,6 +5,7 @@ import CheckoutWizard from '../components/CheckoutWizard';
 import Layout from '../components/Layout';
 import { Store } from '../utils/Store';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 export default function ShippingScreen() {
   const {
@@ -52,7 +53,10 @@ export default function ShippingScreen() {
   return (
     <Layout title="Shipping Address">
       <CheckoutWizard activeStep={1} />
-      <form
+      <motion.form
+        animate={{ opacity: 1, y: 14 }}
+        transition={{ type: 'spring', delay: 0.8 }}
+        initial={{ opacity: 0, y: 0 }}
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
@@ -127,7 +131,7 @@ export default function ShippingScreen() {
         <div className="mb-4 flex justify-between">
           <button className="primary-button">Next</button>
         </div>
-      </form>
+      </motion.form>
     </Layout>
   );
 }

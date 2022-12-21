@@ -7,6 +7,7 @@ import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -48,7 +49,10 @@ export default function LoginScreen() {
   };
   return (
     <Layout title="Create Account">
-      <form
+      <motion.form
+        animate={{ opacity: 1, y: 14 }}
+        transition={{ type: 'spring', delay: 0.8 }}
+        initial={{ opacity: 0, y: 0 }}
         className="mx-auto max-w-screen-md"
         onSubmit={handleSubmit(submitHandler)}
       >
@@ -97,7 +101,6 @@ export default function LoginScreen() {
             })}
             className="w-full"
             id="password"
-            autoFocus
           ></input>
           {errors.password && (
             <div className="text-red-500 ">{errors.password.message}</div>
@@ -133,10 +136,10 @@ export default function LoginScreen() {
           <button className="primary-button">Register</button>
         </div>
         <div className="mb-4 ">
-          Don&apos;t have an account? &nbsp;
-          <Link href={`/register?redirect=${redirect || '/'}`}>Register</Link>
+          I&apos;have an account &nbsp;
+          <Link href="/login">Login</Link>
         </div>
-      </form>
+      </motion.form>
     </Layout>
   );
 }

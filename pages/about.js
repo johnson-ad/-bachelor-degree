@@ -1,6 +1,7 @@
 import Layout from '../components/Layout';
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 
 const about = () => {
   const form = useRef();
@@ -28,8 +29,13 @@ const about = () => {
   };
 
   return (
-    <Layout>
-      <div className="mx-auto max-w-screen-md mt-5 mb-6">
+    <Layout title="About">
+      <motion.div
+        animate={{ scale: 1 }}
+        initial={{ scale: 0 }}
+        transition={{ delay: 0.5 }}
+        className="mx-auto max-w-screen-md mt-5 mb-6"
+      >
         <form ref={form} onSubmit={sendEmail} className="flex flex-col">
           <label className="font-bold mb-3">Name</label>
           <input type="text" name="user_name" />
@@ -43,7 +49,7 @@ const about = () => {
             className="primary-button mt-6"
           />
         </form>
-      </div>
+      </motion.div>
     </Layout>
   );
 };

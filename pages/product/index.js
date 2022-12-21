@@ -9,6 +9,7 @@ import { Store } from '../../utils/Store';
 import { useRouter } from 'next/router';
 import en from '../../locales/en';
 import fr from '../../locales/fr';
+import { motion } from 'framer-motion';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
@@ -31,8 +32,13 @@ export default function Home({ products }) {
     toast.success('Product added to the cart');
   };
   return (
-    <Layout title="Home Page">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+    <Layout title="Product">
+      <motion.div
+        animate={{ opacity: 1, y: 4 }}
+        transition={{ delay: 0.6 }}
+        initial={{ opacity: 0, y: 0 }}
+        className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 mt-10"
+      >
         {products.map((product) => (
           <ProductItem
             product={product}
@@ -40,26 +46,10 @@ export default function Home({ products }) {
             addToCartHandler={addToCartHandler}
           ></ProductItem>
         ))}
-      </div>
+      </motion.div>
     </Layout>
   );
 }
-
-// export default function HomeProduct() {
-//   return (
-//     <Layout title="Home product">
-//       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4  mb-5 mt-3">
-//         {products.map((product) => (
-//           <ProductItem
-//             product={product}
-//             key={product.slug}
-//             addToCartHandler={addToCartHandler}
-//           ></ProductItem>
-//         ))}
-//       </div>
-//     </Layout>
-//   );
-// }
 
 export async function getServerSideProps() {
   await db.connect();

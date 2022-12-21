@@ -8,11 +8,16 @@ import { useRouter } from 'next/router';
 import React, { useContext } from 'react';
 import Layout from '../../components/Layout';
 import { Store } from '../../utils/Store';
+import fr from '../../locales/fr';
+import en from '../../locales/en';
 
 export default function ProductScreen(props) {
   const { product } = props;
   const { state, dispatch } = useContext(Store);
+
   const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : fr;
 
   if (!product) {
     return <Layout title="Produt Not Found">Produt Not Found</Layout>;
@@ -69,7 +74,7 @@ export default function ProductScreen(props) {
               <li>
                 {' '}
                 <span className="font-bold">Description : </span>{' '}
-                {product.description}
+                {t.description} {' --- ||| --- '} {product.description}
               </li>
             </ul>
           </div>

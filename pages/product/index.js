@@ -6,10 +6,17 @@ import ProductItem from '../../components/ProductItem';
 import Product from '../../models/Product';
 import db from '../../utils/db';
 import { Store } from '../../utils/Store';
+import { useRouter } from 'next/router';
+import en from '../../locales/en';
+import fr from '../../locales/fr';
 
 export default function Home({ products }) {
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
+
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : fr;
 
   const addToCartHandler = async (product) => {
     const existItem = cart.cartItems.find((x) => x.slug === product.slug);

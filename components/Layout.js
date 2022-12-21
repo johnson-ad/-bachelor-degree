@@ -9,13 +9,25 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Store } from '../utils/Store';
 import { Menu } from '@headlessui/react';
 import DropdownLink from './DropdownLink';
+import { useRouter } from 'next/router';
+import en from '../locales/en';
+import fr from '../locales/fr';
 
 export default function Layout({ title, children }) {
   const { status, data: session } = useSession();
 
+  const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : fr;
+
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
   const [cartItemsCount, setCartItemsCount] = useState(0);
+
+  const changeLanguage = (e) => {
+    const locale = e.target.value;
+    router.push(router.pathname, router.asPath, { locale });
+  };
 
   useEffect(() => {
     setCartItemsCount(cart.cartItems.reduce((a, c) => a + c.quantity, 0));
@@ -72,7 +84,7 @@ export default function Layout({ title, children }) {
                 'Loading'
               ) : session?.user ? (
                 <Menu as="div" className="relative inline-block">
-                  <Menu.Button className="text-blue-600">
+                  <Menu.Button className="text-blue-600 mr-2">
                     {session.user.name}
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 w-56 origin-top-right bg-white shadow-lg ">
@@ -105,6 +117,18 @@ export default function Layout({ title, children }) {
                   <a className="p-2">Login</a>
                 </Link>
               )}
+              <select
+                onChange={changeLanguage}
+                defaultValue={locale}
+                className="text-blue-700 text-shadow-sm"
+              >
+                <option className="text-black" value="fr">
+                  FR
+                </option>
+                <option className="text-black" value="en">
+                  EN
+                </option>
+              </select>
             </div>
           </nav>
         </header>

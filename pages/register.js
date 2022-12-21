@@ -6,8 +6,8 @@ import Layout from '../components/Layout';
 import { getError } from '../utils/error';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
-import axios from 'axios';
 import { motion } from 'framer-motion';
+import axios from 'axios';
 
 export default function LoginScreen() {
   const { data: session } = useSession();
@@ -136,7 +136,7 @@ export default function LoginScreen() {
           <button className="primary-button">Register</button>
         </div>
         <div className="mb-4 ">
-          I&apos;have an account &nbsp;
+          I have already an account &nbsp;
           <Link href="/login">Login</Link>
         </div>
       </motion.form>

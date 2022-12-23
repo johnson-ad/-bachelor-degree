@@ -53,9 +53,9 @@ function AdminUsersScreen() {
   }, [successDelete]);
 
   const deleteHandler = async (userId) => {
-    if (!window.confirm('Are you sure?')) {
-      return;
-    }
+    // if (!window.confirm('Are you sure?')) {
+    //   return;
+    // }
     try {
       dispatch({ type: 'DELETE_REQUEST' });
       await axios.delete(`/api/admin/users/${userId}`);

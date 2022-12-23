@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   );
 }
 
+/* esLint-disable */
 function Auth({ children, adminOnly }) {
   const router = useRouter();
   const { status, data: session } = useSession({

@@ -4,7 +4,6 @@ import React, { useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
 import Layout from '../../components/Layout';
 import { getError } from '../../utils/error';
-import { motion } from 'framer-motion';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -70,12 +69,7 @@ function AdminUsersScreen() {
 
   return (
     <Layout title="Users">
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: 'spring', delay: 0.8 }}
-        initial={{ opacity: 0, y: -15 }}
-        className="grid md:grid-cols-4 md:gap-5"
-      >
+      <div className="grid md:grid-cols-4 md:gap-5">
         <div>
           <ul>
             <li>
@@ -142,7 +136,7 @@ function AdminUsersScreen() {
             </div>
           )}
         </div>
-      </motion.div>
+      </div>
     </Layout>
   );
 }

@@ -18,8 +18,3 @@ const addCart = (item) => {
     description: 'A popular shirt from Jason.',
   });
 };
-
-
-const deleteCart = (id){
-    
-}

@@ -120,11 +120,11 @@ export default function Layout({ title, children }) {
                     Product
                   </a>
                 </Link>
-                <Link href="/about">
+                {/* <Link href="/about">
                   <a className="p-2 hover:scale-125 duration-300 hover:text-teal-400">
                     About
                   </a>
-                </Link>
+                </Link> */}
                 <Link href="/cart">
                   <a className="p-2 mr-1 hover:scale-125 duration-300 hover:text-teal-400">
                     Cart

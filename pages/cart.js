@@ -58,7 +58,7 @@ function CartScreen() {
             />
           </div>
           <div>
-            <h1 class="text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500 font-oswald mb-10">
+            <h1 className="text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-rose-500 font-oswald mb-10">
               Cart is empty.
             </h1>
             <Link href="/">

@@ -9,11 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Store } from '../utils/Store';
 import { Menu } from '@headlessui/react';
 import DropdownLink from './DropdownLink';
-import en from '../locales/en';
-import fr from '../locales/fr';
+import Script from 'next/script';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import { AiOutlineStrikethrough } from 'react-icons/ai';
 import { TfiSearch } from 'react-icons/tfi';
 
 export default function Layout({ title, children }) {
@@ -29,7 +27,6 @@ export default function Layout({ title, children }) {
   };
 
   const { locale } = router;
-  const t = locale === 'en' ? en : fr;
 
   const { state, dispatch } = useContext(Store);
   const { cart } = state;
@@ -57,14 +54,6 @@ export default function Layout({ title, children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content="bachelor degree" />
         <link rel="icon" href="/favicon.ico" />
-        <script
-          type="module"
-          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-        ></script>
-        <script
-          nomodule
-          src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-        ></script>
       </Head>
       <ToastContainer position="bottom-center" limit={1} />
       <div className="flex min-h-screen flex-col justify-between">
@@ -93,12 +82,12 @@ export default function Layout({ title, children }) {
             </div>
             <div
               className={`md:flex md:items-center md:pb-0 h-12 absolute md:static  md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-                open ? 'top-10 bg-green-400 ' : 'top-[-490px]'
+                open ? 'top-10 bg-white z-50 h-80' : 'top-[-490px]'
               }`}
             >
               <form
                 onSubmit={submitHandler}
-                className="mx-auto  hidden  justify-center md:flex"
+                className="mx-auto  hidden  justify-center md:flex mr-3"
               >
                 <input
                   onChange={(e) => setQuery(e.target.value)}
@@ -164,7 +153,7 @@ export default function Layout({ title, children }) {
                         {session.user.name}
                       </motion.span>
                     </Menu.Button>
-                    <Menu.Items className="absolute right-0 w-56 origin-top-right hover:z-50 bg-white shadow-lg ">
+                    <Menu.Items className="absolute right-0 w-56 t-10 hover:z-40  bg-white shadow-lg ">
                       <Menu.Item>
                         <DropdownLink className="dropdown-link" href="/profile">
                           Profile
@@ -223,6 +212,8 @@ export default function Layout({ title, children }) {
         <main className="container m-auto mt-4 px-4">{children}</main>
         <Footer />
       </div>
+      <Script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js" />
+      <Script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js" />
     </>
   );
 }

@@ -1,12 +1,12 @@
 import Layout from '../components/Layout';
-import React, { useRef } from 'react';
+import React from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
 
 const about = () => {
-  const form = useRef();
+  const form = React.useRef();
 
-  const sendEmail = (e) => {
+  function sendEmail(e) {
     e.preventDefault();
 
     emailjs
@@ -26,7 +26,7 @@ const about = () => {
       );
 
     e.target.reset();
-  };
+  }
 
   return (
     <Layout title="About">
